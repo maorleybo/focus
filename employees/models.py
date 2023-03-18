@@ -7,13 +7,18 @@ class Color(models.Model):
     # id primary key is created automaticly
     name = models.CharField(max_length=200)
 
-    # class Meta:
-    #     db_table = "Color"
+    #change the default table name to the one in the word document
+    class Meta:
+        db_table = "Color"
     
 
 class Department(models.Model):
     # id primary key is created automaticly
     name = models.CharField(max_length=200)
+
+    #change the default table name to the one in the word document
+    class Meta:
+        db_table = "Department"
     
 
 class Employees(models.Model):
@@ -22,9 +27,13 @@ class Employees(models.Model):
     name           = models.CharField(max_length=200)
     age            = models.IntegerField()
     is_senior      = models.BooleanField(default=True)   # as requested in the wor document
-    favorite_color = models.ForeignKey(Color, on_delete=models.CASCADE, default=2) # TODO: change cascade to a better function so it wont delete the object
-    Department     = models.ForeignKey(Department, on_delete=models.CASCADE) # TODO: change cascade to a better function so it wont delete the object
+    favorite_color = models.ForeignKey(Color, on_delete=models.CASCADE, default=2, db_column='favorite_color') # TODO: change cascade to a better function so it wont delete the object
+    department     = models.ForeignKey(Department, on_delete=models.CASCADE, db_column='department'
+                                        , default=None) # TODO: change cascade to a better function so it wont delete the object
     
+    #change the default table name to the one in the word document
+    class Meta:
+        db_table = "Employees"
 
     
 
