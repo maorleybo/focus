@@ -6,6 +6,9 @@ from django.db import models
 class Color(models.Model):
     # id primary key is created automaticly
     name = models.CharField(max_length=200)
+
+    # class Meta:
+    #     db_table = "Color"
     
 
 class Department(models.Model):
@@ -14,6 +17,7 @@ class Department(models.Model):
     
 
 class Employees(models.Model):
+    #TODO: check why the sql command doesnt write it as foreignkey
     # id primary key is created automaticly
     name           = models.CharField(max_length=200)
     age            = models.IntegerField()
