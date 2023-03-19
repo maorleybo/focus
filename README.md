@@ -5,7 +5,7 @@ focus
 built in manjaro linux with pipenv for easy libraries installation
 
 ## install
-I use pipenv so you need to clone the repo and install using: ```pipenv install```.
+I used pipenv, so you need to clone the repo and install using: ```pipenv install```.
 
 to enter the venv, use: ```pipenv shell```
 
