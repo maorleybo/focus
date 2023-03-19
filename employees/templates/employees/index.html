@@ -3,15 +3,25 @@
 {% block title %}Focus{% endblock %}
 
 {% block body %}
+    <h1 class="text-center">Choose a department</h1>
+    <hr class="border border-info border-3 opacity-75"/>
     {% if lst_of_deps %}
-        <ul>
-            {% for dept in lst_of_deps %}
-            <li>
-                <a href="{% url 'employees:details' dept.id %}">{{ dept.name }}</a>
-            </li>
-            {% endfor %}
-        </ul>
-        {% else %}
+    <div class="row">
+        {% for dept in lst_of_deps %}
+        <div class="col-sm-6">
+          <div class="card m-1">
+            <div class="card-header text-center">
+                <h5 class="card-title">{{ dept.name }}</h5>
+            </div>
+            <div class="card-body text-center">
+              <p class="card-text">see the list of {{ dept.name }} employees</p>
+              <a href="{% url 'employees:details' dept.id %}" class="btn btn-primary">Go There Now!!</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
         <p>Theres no departments!</p>
     {% endif %}
 {% endblock %}
