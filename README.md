@@ -11,12 +11,12 @@ to enter the venv, use: ```pipenv shell```
 
 * if you want to open in visual studio code:
     * you need to set the python interpreter to the venv so:
-        *     
+        * 
             1. CTRL - SHFT - P
             2. Python: Set interpreter
             3. get your venv dir using ```pipenv --venv```
-            4. add the interpreter in *(<venv_DIR>/bin/python)*
-
+            4. add the interpreter in *(<venv_DIR>/bin/python)*  
+        
         * 
             1. get you direct interpreter location using ```pipenv --py```
             2. CTRL - SHFT - P
