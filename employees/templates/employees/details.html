@@ -1,18 +1,47 @@
+
 {% extends 'employees/base.html' %}
 
 {% block title %}{{ dept.name }}{% endblock %}
+{% block style %}
+{% endblock %}
+
 
 {% block body %}
+
+<!-- display a message if saved to db -->
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Heads Up!</strong> {{ message }}.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+{% endif %}
+
 <h1>{{ dept.name }}</h1>
-    {% if lst_of_emps %}
-    <ul>
-        {% for emp in lst_of_emps %}
-        <li>
-            {% include "employees/emp_component.html" %}
-        </li>
+<hr/>
+<form method="post">
+    {% csrf_token %}   
+    <div class="d-flex flex-wrap ">
+        {{ formset.management_form }}
+        {% for form in formset %}
+        <div class="w-25  m-2" >
+            <div class="bg-primary rounded border  ">
+                {{ form }}
+            </div>
+            
+        </div>
         {% endfor %}
-    </ul>
-    {% else %}
-    <p>There're no employees!</p>
-    {% endif %}
+    </div>
+    
+    <div class="col-md-12 text-center ">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
 {% endblock %}
+
+
+
+
+
+
