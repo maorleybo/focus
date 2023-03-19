@@ -7,6 +7,9 @@ class Color(models.Model):
     # id primary key is created automaticly
     name = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.name
+
     #change the default table name to the one in the word document
     class Meta:
         db_table = "Color"
@@ -15,6 +18,9 @@ class Color(models.Model):
 class Department(models.Model):
     # id primary key is created automaticly
     name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
 
     #change the default table name to the one in the word document
     class Meta:
@@ -31,6 +37,13 @@ class Employees(models.Model):
     department     = models.ForeignKey(Department, on_delete=models.CASCADE, db_column='department'
                                         , default=None) # TODO: change cascade to a better function so it wont delete the object
     
+    def __str__(self):
+        return self.name
+    
+
+    # def __repr__(self):
+    #     return self.name
+
     #change the default table name to the one in the word document
     class Meta:
         db_table = "Employees"
