@@ -1,22 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Focus</title>
-</head>
-<body>
+{% extends 'employees/base.html' %}
+
+{% block title %}Focus{% endblock %}
+
+{% block body %}
     {% if lst_of_deps %}
-    <ul>
-        {% for dept in lst_of_deps %}
-        <li>
-            <a href="/dept/{{ dept.id }}">{{ dept.name }}</a>
-        </li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    <p>Theres no departments!</p>
+        <ul>
+            {% for dept in lst_of_deps %}
+            <li>
+                <a href="{% url 'employees:details' dept.id %}">{{ dept.name }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>Theres no departments!</p>
     {% endif %}
-</body>
-</html>
+{% endblock %}
+

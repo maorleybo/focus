@@ -1,0 +1,18 @@
+{% extends 'employees/base.html' %}
+
+{% block title %}{{ dept.name }}{% endblock %}
+
+{% block body %}
+<h1>{{ dept.name }}</h1>
+    {% if lst_of_emps %}
+    <ul>
+        {% for emp in lst_of_emps %}
+        <li>
+            {% include "employees/emp_component.html" %}
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>There're no employees!</p>
+    {% endif %}
+{% endblock %}
